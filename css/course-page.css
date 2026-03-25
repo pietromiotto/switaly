@@ -1,0 +1,579 @@
+/* ============================================================
+   COURSE-PAGE.CSS — Styles specific to course detail pages.
+   All base typography, layout, nav, footer, components come
+   from the shared CSS files. This file only adds what is new.
+   ============================================================ */
+
+/* ── SUBNAV (sticky breadcrumb bar) ─────────────────────────
+   Sits below the main nav as a second fixed strip.
+   --subnav-h token lives in base.css :root (default 44px).
+   On inner pages, body.page-course gets padding-top for both bars.
+   ─────────────────────────────────────────────────────────── */
+
+.subnav {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  z-index: 190;
+  height: var(--subnav-h);
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--border-muted);
+  display: flex;
+  align-items: center;
+  padding-inline: var(--sp-12);
+  transition: box-shadow var(--t-slow);
+}
+.subnav--shadow {
+  box-shadow: 0 2px 16px rgba(10,46,110,0.07);
+}
+
+.subnav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  gap: var(--sp-8);
+}
+
+/* Breadcrumb inside subnav — inline, no bottom margin */
+.subnav .breadcrumb {
+  margin-bottom: 0;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+/* Truncate long paths on small screens */
+.subnav .breadcrumb a,
+.subnav .breadcrumb__current {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+/* First item (Home) always visible */
+.subnav .breadcrumb li:first-child a { max-width: none; }
+
+/* Sibling course links in subnav — scrollable horizontal list */
+.subnav__siblings {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+.subnav__siblings::-webkit-scrollbar { display: none; }
+.subnav__siblings a {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-off);
+  white-space: nowrap;
+  transition: color var(--t-base);
+  padding-block: var(--sp-1);
+  position: relative;
+}
+.subnav__siblings a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 100%;
+  height: 1px;
+  background: var(--c-secondary);
+  transition: right var(--t-slow) var(--ease-out);
+}
+.subnav__siblings a:hover        { color: var(--c-primary); }
+.subnav__siblings a:hover::after { right: 0; }
+.subnav__siblings a[aria-current="page"] {
+  color: var(--c-primary);
+  font-weight: 600;
+}
+.subnav__siblings a[aria-current="page"]::after {
+  right: 0;
+  background: var(--c-primary);
+}
+
+/* Body offset — push content below both fixed bars */
+body.page-course {
+  padding-top: calc(var(--nav-h) + var(--subnav-h));
+}
+
+/* Nav always fully blue on inner pages — no transparent phase */
+body.page-course #site-nav {
+  background: var(--c-primary) !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: rgba(200,16,46,0.18);
+}
+
+/* ── COURSE HERO — split overlay ─────────────────────────────
+   Left half: image shows through clearly
+   Right half: fades to deep blue, text sits over it
+   ─────────────────────────────────────────────────────────── */
+.hero--course {
+  /* Taller than page hero — image deserves room */
+  height: clamp(380px, 62dvh, 600px);
+  min-height: unset;
+  /* No border-radius on hero — flat top, curve at bottom via section-layer */
+  border-radius: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* Directional overlay: transparent left → blue right */
+.hero--course .hero__overlay {
+  background: linear-gradient(
+    to right,
+    rgba(10,46,110,0.02)  0%,
+    rgba(10,46,110,0.20) 35%,
+    rgba(10,46,110,0.82) 62%,
+    rgba(10,46,110,0.96) 100%
+  );
+}
+
+/* Content: absolutely positioned to fill the hero, then split internally.
+   This escapes the flex flow of .hero entirely — no fighting with
+   justify-content or align-items from the base class.              */
+.hero--course .hero__content {
+  position: absolute;
+  inset: 0;
+  /* Internal grid: left column for logo, right for text */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  /* Constrain the inner content with padding only */
+  padding-inline: clamp(var(--sp-8), 5vw, var(--sp-12));
+  padding-bottom: 0;
+  padding-top: 0;
+  /* Reset any flex-inherited properties */
+  max-width: none;
+  width: auto;
+  margin: 0;
+  text-align: center;
+}
+
+/* Container for the right half of the hero (over the blue gradient) */
+.hero--course .hero__right-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: var(--sp-8);
+  padding-right: 0;
+}
+
+/* Logo itself */
+.hero--course .hero__logo {
+  height: clamp(52px, 7vw, 88px);
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  /* Layered shadow: crisp near + diffused far — readable on gradient */
+  filter:
+    drop-shadow(0 2px 8px rgba(0,0,0,0.4))
+    drop-shadow(0 6px 32px rgba(10,46,110,0.5));
+  margin-bottom: var(--sp-6);
+  margin-left: var(--sp-4);
+}
+
+/* Text block inside the right column */
+.hero--course .hero__text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  padding-right: 0;
+}
+
+.hero--course .hero__eyebrow {
+  color: rgba(255,255,255,0.7);
+  margin-bottom: var(--sp-3);
+  text-align: right;
+}
+
+.hero--course .hero__title {
+  font-size: clamp(32px, 4.5vw, 64px);
+  text-align: right;
+}
+
+.hero--course .hero__subtitle {
+  text-align: right;
+  margin-top: var(--sp-4);
+  max-width: 380px;
+}
+
+/* ── MOBILE HERO: full blue overlay, text below ──────────────
+   On portrait mobile the side-split is meaningless (too narrow).
+   We switch to full overlay + move text below the image instead.
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .hero--course {
+    height: clamp(240px, 50vw, 340px);
+    align-items: flex-end;
+    justify-content: center;
+  }
+  /* Remove the full blue overlay entirely.
+     Instead: a bottom-to-blue fade so the image melts
+     seamlessly into the .course-intro blue block below. */
+  .hero--course .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(10,46,110,0.00)  0%,
+      rgba(10,46,110,0.00) 45%,
+      rgba(10,46,110,0.60) 72%,
+      rgba(10,46,110,1.00) 100%
+    );
+  }
+  /* Reset the two-column grid to hidden */
+  .hero--course .hero__content {
+    display: none;
+  }
+}
+
+/* ── COURSE INTRO (mobile text block below hero) ─────────────
+   On desktop: hidden (text is inside hero).
+   On mobile:  visible block below the image.
+   ─────────────────────────────────────────────────────────── */
+.course-intro {
+  display: none;
+}
+@media (max-width: 700px) {
+  .course-intro {
+    display: block;
+    background: var(--c-primary);
+    padding: var(--sp-8) var(--sp-6) var(--sp-10);
+    text-align: left;
+  }
+  .course-intro .hero__eyebrow { color: rgba(255,255,255,0.65); }
+  .course-intro .hero__title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.05;
+    color: var(--c-white);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-3);
+  }
+  .course-intro .hero__title em { font-style: italic; color: var(--c-secondary); }
+  .course-intro .hero__subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    margin-top: 0;
+    text-align: left;
+    max-width: 100%;
+  }
+  .course-intro .hero__logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: var(--sp-4);
+    display: block;
+  }
+}
+
+/* ── MOBILE SUBNAV ───────────────────────────────────────────
+   Siblings list scrolls horizontally, breadcrumb hidden on
+   very small screens to save space.
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .subnav { padding-inline: var(--sp-6); }
+  /* Hide breadcrumb on mobile — just show sibling course links */
+  .subnav__breadcrumb-wrap { display: none; }
+  .subnav__siblings { flex: 1; }
+}
+@media (max-width: 560px) {
+  .subnav__siblings a { font-size: 10px; letter-spacing: 0.1em; }
+}
+
+/* ── FEATURE PILLARS (3 icon blocks) ────────────────────────*/
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-16);
+}
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-6);
+  background: var(--c-surface-2);
+  border: var(--border-muted);
+  border-radius: var(--radius);
+  transition: border-color var(--t-slow), transform var(--t-slow) var(--ease-out);
+}
+.pillar:hover { border-color: rgba(10,46,110,0.2); }
+@media (prefers-reduced-motion: no-preference) {
+  .pillar:hover { transform: translateY(-3px); }
+}
+.pillar__icon {
+  width: 32px; height: 32px;
+  color: var(--c-secondary);
+  flex-shrink: 0;
+}
+.pillar__title {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+}
+.pillar__body {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.7;
+  color: var(--c-off);
+}
+
+@media (max-width: 700px) {
+  .pillars { grid-template-columns: 1fr; gap: var(--sp-3); }
+}
+
+/* ── CONTENT SECTIONS on course page ────────────────────────*/
+.course-section {
+  padding-block: var(--sp-20);
+  border-top: var(--border-muted);
+}
+.course-section:first-child { border-top: none; }
+
+.course-section__heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 3.2vw, 42px);
+  line-height: 1.15;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-8);
+}
+.course-section__heading em {
+  font-style: italic;
+  color: var(--c-secondary);
+}
+
+/* Method blocks — icon + title + body */
+.method-block {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: var(--sp-5) var(--sp-6);
+  align-items: start;
+  padding-block: var(--sp-8);
+  border-top: var(--border-muted);
+}
+.method-block:first-child { border-top: none; padding-top: 0; }
+.method-block__icon {
+  width: 40px; height: 40px;
+  color: var(--c-primary);
+  margin-top: 4px;
+}
+.method-block__title {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-3);
+}
+.method-block__body {
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.78;
+  color: var(--c-off);
+  grid-column: 2;
+}
+@media (max-width: 560px) {
+  .method-block {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+  .method-block__body { grid-column: 1; }
+}
+
+/* Outcomes list */
+.outcomes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+/* Tighter variant — used when outcomes sit alongside other content blocks */
+.outcomes--tight {
+  margin-top: var(--sp-2);
+  gap: var(--sp-2);
+}
+.outcomes li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.7;
+  color: var(--c-off);
+}
+.outcomes li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-secondary);
+  margin-top: 8px;
+}
+
+/* Column wrapper for the two-column module listing grid */
+.course-modules-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+/* ── COURSE MODULE BLOCK ─────────────────────────────────────
+   Repeating pattern: eyebrow badge + module title + description.
+   Used in corso-ai.html to list individual course modules.
+   ─────────────────────────────────────────────────────────── */
+.course-module {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+/* The module-level eyebrow badge (overrides base eyebrow color per track) */
+.course-module__badge {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-2);
+}
+.course-module__badge--base     { color: var(--c-primary); }
+.course-module__badge--advanced { color: var(--c-secondary); }
+
+/* Module title */
+.course-module__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(17px, 1.8vw, 22px);
+  color: var(--c-text);
+  line-height: 1.3;
+}
+
+/* Module description — shares section-body styles, no extra margin needed
+   because the gap on .course-module handles spacing */
+.course-module__body {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.7;
+  color: var(--c-off);
+}
+
+/* ── AUDIENCE BLOCK ──────────────────────────────────────────
+   h4 title + section-body description pair, used for target
+   audience listings on course pages.
+   ─────────────────────────────────────────────────────────── */
+.audience-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  margin-bottom: var(--sp-6);
+}
+.audience-block:last-child { margin-bottom: 0; }
+
+.audience-block__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: var(--c-text);
+  line-height: 1.25;
+}
+
+/* ── SECTION-BODY CALLOUT ────────────────────────────────────
+   Bold-coloured emphasis paragraph — sits after a normal
+   section-body to add a punchy closing statement.
+   ─────────────────────────────────────────────────────────── */
+.section-body--callout {
+  font-weight: 500;
+  color: var(--c-primary);
+}
+/* ── CTA BAND ────────────────────────────────────────────────
+   Full-width blue band with contact button at bottom of page.
+   Always flat-bottomed — it's the last element before footer.
+   ─────────────────────────────────────────────────────────── */
+.cta-band {
+  background: var(--c-primary);
+  /* padding-top compensates for the negative margin-top overlap,
+     leaving exactly --sp-24 of visible spacing below the curved section above */
+  padding-top: calc(var(--sp-24) + var(--curve-section));
+  padding-bottom: var(--sp-24);
+  text-align: center;
+  /* Flat bottom — last element before footer */
+  border-radius: 0;
+  /* Pull up under the last content section, mimicking section-layer
+     without inheriting its padding-top or border-radius */
+  margin-top: calc(-1 * var(--curve-section));
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-section);
+}
+.cta-band__heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 46px);
+  color: var(--c-white);
+  margin-bottom: var(--sp-4);
+}
+.cta-band__sub {
+  font-size: clamp(17px, 1.7vw, 20px);
+  color: rgba(255,255,255,0.65);
+  margin-bottom: var(--sp-8);
+}
+
+/* ── VIDEO EMBED ─────────────────────────────────────────────
+   Responsive 16:9 iframe wrapper used in servizio-eventi.html.
+   Replaces the inline style="aspect-ratio:16/9; position:relative…"
+   pattern, which also referenced the non-existent --shadow-sm token.
+
+   Sizing rationale:
+   - layout-split gives the content column ~1100px on desktop (1400px
+     container minus sidebar/gap/padding). We cap at 760px so the
+     player height stays ~428px — comfortably visible on any laptop
+     without the player dwarfing the text or requiring scroll to see
+     the controls. The cap is wide enough the video never looks small.
+   - On mobile (< 900px) layout-split collapses to 1 column so the
+     video fills the full container width naturally — max-width lifted.
+   ──────────────────────────────────────────────────────────── */
+.video-embed {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  /* 16:9 intrinsic ratio — height is always derived from width */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(10, 46, 110, 0.12);
+  background: var(--c-text);
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Mobile: full container width, no cap needed */
+@media (max-width: 900px) {
+  .video-embed {
+    max-width: 100%;
+  }
+}

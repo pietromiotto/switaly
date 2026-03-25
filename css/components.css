@@ -1,0 +1,702 @@
+/* ============================================================
+   COMPONENTS.CSS — Reusable UI components
+   ============================================================ */
+
+/* ── NAV ─────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--sp-12);
+  transition:
+    background     var(--t-slow) var(--ease-out),
+    backdrop-filter var(--t-slow) var(--ease-out),
+    border-color   var(--t-slow);
+  border-bottom: 1px solid transparent;
+}
+
+.nav--scrolled {
+  background: rgba(10, 46, 110, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(200, 16, 46, 0.25);
+}
+
+/* When mobile drawer is open, nav goes fully opaque blue —
+   no video bleeds through the burger/logo row */
+.nav--drawer-open {
+  background: var(--c-primary);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: transparent;
+}
+
+/* Logo — image */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: nav-drop 0.7s 0.1s var(--ease-out) forwards;
+}
+.nav__logo img {
+  --logo-h: 38px;
+  height: var(--logo-h);
+  width: auto;
+  object-fit: contain;
+  /* Allow logo to retain original colors */
+  transition: opacity var(--t-base);
+}
+.nav__logo img:hover { opacity: 0.85; }
+
+/* Login button — ghost with lock icon */
+.btn--login {
+  color: var(--c-white);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.btn--login svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+.btn--login:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.8);
+  color: var(--c-white);
+  transform: translateY(-1px);
+}
+
+/* Desktop links */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+}
+/* Links start visible. JS adds .js-ready to <html> and the animation
+   takes over — this ensures they're never invisible without JS. */
+.js-ready .nav__links li {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.nav__links a {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  position: relative;
+  transition: color var(--t-base);
+  padding-block: var(--sp-1);
+}
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0; right: 100%;
+  height: 1px;
+  background: var(--c-secondary);
+  transition: right var(--t-slow) var(--ease-out);
+}
+.nav__links a:hover              { color: var(--c-white); }
+.nav__links a:hover::after       { right: 0; }
+
+/* Burger */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: var(--sp-2);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.nav__burger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--c-white);
+  transform-origin: center;
+  transition:
+    transform var(--t-slow) var(--ease-out),
+    opacity   var(--t-base);
+}
+.nav__burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav__burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav__burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobile drawer — covers full screen including nav area */
+.nav__drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 0;
+  z-index: 199;
+  background: var(--c-primary);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-slow) var(--ease-out);
+  padding-top: var(--nav-h);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* Allow scrolling when content overflows on landscape phones */
+  overflow-y: auto;
+  /* Prevent momentum scroll bleed on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+.nav__drawer.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.nav__drawer a {
+  font-family: var(--font-label);
+  font-size: clamp(22px, 6vw, 32px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-white);
+  transition: color var(--t-base);
+}
+.nav__drawer a:hover { color: var(--c-secondary); }
+
+/* ── BUTTONS ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 13px 36px;
+  border-radius: var(--radius);
+  transition:
+    background   var(--t-base),
+    color        var(--t-base),
+    border-color var(--t-base),
+    transform    var(--t-base);
+  white-space: nowrap;
+  min-height: 44px;
+  cursor: pointer;
+}
+.btn:hover  { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+/* Primary — blue fill */
+.btn--primary {
+  color: var(--c-white);
+  background: var(--c-primary);
+  border: 1px solid var(--c-primary);
+}
+.btn--primary:hover {
+  background: var(--c-primary-hi);
+  border-color: var(--c-primary-hi);
+}
+
+/* Secondary — red fill */
+.btn--secondary {
+  color: var(--c-white);
+  background: var(--c-secondary);
+  border: 1px solid var(--c-secondary);
+}
+.btn--secondary:hover {
+  background: var(--c-accent-hi);
+  border-color: var(--c-accent-hi);
+}
+
+/* Ghost — white border/text (for use on dark/image backgrounds) */
+.btn--ghost {
+  color: var(--c-white);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.btn--ghost:hover {
+  background: var(--c-secondary);
+  border-color: var(--c-secondary);
+  color: var(--c-white);
+}
+
+/* Nav CTA */
+.btn--nav {
+  font-size: 11px;
+  padding: 9px 24px;
+  min-height: 36px;
+  opacity: 0;
+  animation: nav-drop 0.7s 0.55s var(--ease-out) forwards;
+}
+
+/* ── STAT ────────────────────────────────────────────────── */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--sp-5) var(--sp-8);
+  position: relative;
+}
+.stat + .stat::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: rgba(10, 46, 110, 0.15);
+}
+.stat__number {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1;
+  color: var(--c-primary);
+}
+.stat__suffix {
+  font-size: 0.55em;
+  vertical-align: super;
+  line-height: 1;
+}
+.stat__label {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-off);
+  margin-top: var(--sp-3);
+  line-height: 1.7;
+}
+
+/* ── COURSE CARD ─────────────────────────────────────────── */
+.course-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 380px;
+  /* Fallback bg if image missing */
+  background-color: var(--c-primary);
+}
+
+/* Background image layer — now a <picture> element with an <img> inside.
+   object-position art direction is set inline on the <img> per-card. */
+.course-card__bg {
+  position: absolute;
+  inset: 0;
+  display: block;                  /* picture is inline by default */
+  background-color: var(--c-primary); /* fallback while image loads */
+  transition: transform var(--t-slow) var(--ease-out);
+  overflow: hidden;
+}
+.course-card__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;        /* overridden per-card via inline style */
+  display: block;
+  transition: transform var(--t-slow) var(--ease-out);
+}
+.course-card:hover .course-card__bg img {
+  transform: scale(1.04);
+}
+
+/* Blue overlay — darkens on hover */
+.course-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 46, 110, 0.70);
+  transition: background var(--t-slow);
+}
+.course-card:hover .course-card__overlay {
+  background: rgba(10, 46, 110, 0.85);
+}
+
+/* Red top accent line on hover */
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 3px;
+  background: var(--c-secondary);
+  transition: width var(--t-slow) var(--ease-out);
+  z-index: 3;
+}
+.course-card:hover::before { width: 100%; }
+
+/* Logo slot
+   Default controlled by --card-logo-h token.
+   Override per-card inline: style="--card-logo-h:72px"
+   Current default: 56px */
+.course-card__logo {
+  position: absolute;
+  top: var(--sp-6);
+  left: var(--sp-6);
+  --card-logo-h: 56px;
+  height: var(--card-logo-h);
+  max-width: 180px;
+  width: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45));
+  transition: transform var(--t-base);
+}
+.course-card:hover .course-card__logo {
+  transform: scale(1.04);
+}
+/* Hide broken/missing logo images gracefully — no broken icon shown */
+.course-card__logo[src=""],
+.course-card__logo:not([src]) {
+  display: none;
+}
+.course-card__logo.is-hidden {
+  display: none;
+}
+
+/* Content */
+.course-card__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--sp-8) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+.course-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.2;
+  color: var(--c-white);
+}
+.course-card__body {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
+}
+.course-card__btn {
+  margin-top: var(--sp-3);
+  align-self: flex-start;
+}
+/* Ghost → primary on card hover */
+.course-card:hover .btn--ghost {
+  background: var(--c-secondary);
+  border-color: var(--c-secondary);
+  color: var(--c-white);
+}
+
+/* ── SERVICE BLOCK ───────────────────────────────────────── */
+.service-block {
+  background: var(--c-surface);
+  border: var(--border-muted);
+  padding: var(--sp-10) var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  position: relative;
+  transition: border-color var(--t-slow), transform var(--t-slow) var(--ease-out);
+}
+.service-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 3px;
+  background: var(--c-secondary);
+  transition: width var(--t-slow) var(--ease-out);
+}
+.service-block:hover::before     { width: 100%; }
+.service-block:hover             { border-color: rgba(200,16,46,0.20); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .service-block:hover { transform: translateY(-4px); }
+}
+
+.service-block__icon {
+  width: 36px; height: 36px;
+  color: var(--c-primary);
+  flex-shrink: 0;
+}
+.service-block__title {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+}
+.service-block__body {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.75;
+  color: var(--c-off);
+}
+
+/* "Scopri di più" link — only on blocks that have one */
+.service-block__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+  transition: gap var(--t-base), color var(--t-base);
+}
+.service-block__link svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform var(--t-base);
+}
+.service-block__link:hover {
+  color: var(--c-secondary);
+  gap: var(--sp-4);
+}
+.service-block__link:hover svg {
+  transform: translateX(3px);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.form-group label {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-off);
+}
+.form-group input,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--c-text);
+  background: var(--c-surface);
+  border: var(--border-primary);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius);
+  width: 100%;
+  min-height: 44px;
+  transition: border-color var(--t-base);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(10,46,110,0.10);
+}
+.form-group input.input-corso {
+  font-weight: 500;
+  color: var(--c-primary);
+}
+.form-group textarea {
+  min-height: 120px;
+}
+/* Inline error state */
+.form-group input.is-error,
+.form-group textarea.is-error {
+  border-color: var(--c-secondary);
+}
+.form-group .form-error {
+  font-size: 12px;
+  color: var(--c-secondary);
+  display: none;
+}
+.form-group.has-error .form-error { display: block; }
+
+/* Checkbox row */
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  cursor: pointer;
+}
+.form-checkbox input[type="checkbox"] {
+  width: 18px; height: 18px;
+  min-height: unset;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--c-primary);
+  cursor: pointer;
+}
+.form-checkbox span {
+  font-size: 13px;
+  color: var(--c-off);
+  line-height: 1.5;
+}
+
+/* Submit-level error — shown below the form when the API call fails */
+.form-submit-error {
+  font-size: 13px;
+  color: var(--c-secondary);
+  padding: var(--sp-3) var(--sp-4);
+  border: var(--border-accent);
+  border-radius: var(--radius);
+  background: var(--c-secondary-lo);
+}
+
+/* Form success message */
+.form-success {
+  display: none;
+  padding: var(--sp-6);
+  background: rgba(10,46,110,0.07);
+  border: var(--border-primary);
+  border-radius: var(--radius);
+  font-family: var(--font-label);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--c-primary);
+  text-align: center;
+}
+.form-success.is-visible { display: block; }
+
+/* Privacy policy link inside the form checkbox */
+.form-privacy-link {
+  color: var(--c-primary);
+  text-decoration: underline;
+  transition: color var(--t-base);
+}
+.form-privacy-link:hover {
+  color: var(--c-secondary);
+}
+
+/* Category heading inside a service-block card */
+.service-block__heading {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 600;
+  color: var(--c-primary);
+  margin-bottom: var(--sp-2);
+  line-height: 1.15;
+}
+
+/* Divider rule inside a service-block */
+.service-block__rule {
+  border: 0;
+  border-top: 1px solid var(--c-surface-2);
+  margin: var(--sp-6) 0 var(--sp-4);
+}
+
+/* Drawer login button spacing */
+.btn--drawer-login {
+  margin-top: var(--sp-4);
+}
+
+/* ── 9. Accordion Component ───────────────────────────────── */
+.accordion {
+  background: var(--c-surface);
+  border-radius: calc(var(--curve-section) / 2);
+  margin-bottom: var(--sp-4);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(10, 46, 110, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+.accordion:hover {
+  box-shadow: 0 8px 30px rgba(10, 46, 110, 0.08);
+}
+.accordion summary {
+  padding: var(--sp-4) var(--sp-6);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--c-primary);
+  cursor: pointer;
+  list-style: none; /* Hide default arrow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "";
+  display: block;
+  width: 10px; height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion[open] summary {
+  color: var(--c-secondary);
+  border-bottom: 1px solid rgba(13, 27, 42, 0.05);
+}
+.accordion[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+.accordion__content {
+  padding: var(--sp-4) var(--sp-6);
+  color: var(--c-off);
+  font-size: clamp(16px, 1.65vw, 18px);
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE COMPONENT OVERRIDES ─────────────────────── */
+@media (max-width: 900px) {
+  .nav { padding-inline: var(--sp-6); }
+  .nav__links,
+  .btn--nav    { display: none; }
+  .nav__burger { display: flex; }
+  .nav__drawer { display: flex; }
+}
+
+/*
+  Landscape phone override — restore desktop nav on phones held sideways.
+  Range: 600px–900px wide + landscape orientation.
+  - Below 600px landscape: too narrow even rotated (very old/small devices)
+  - Above 900px landscape: already gets desktop nav from the default rules
+  - iPads in portrait (768px+) are NOT landscape, so they're unaffected here
+
+  We restore the desktop nav and hide the burger.
+  The drawer is already hidden by display:none default — no change needed.
+*/
+@media (min-width: 600px) and (max-width: 900px) and (orientation: landscape) {
+  .nav { padding-inline: var(--sp-8); }
+  .nav__links { display: flex; }
+  .btn--nav   { display: inline-flex; }
+  .nav__burger,
+  .nav__drawer { display: none; }
+}
+
+@media (max-width: 560px) {
+  .stat + .stat::before { display: none; }
+  .stat {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--sp-4) 0;
+    text-align: left;
+    border-bottom: var(--border-muted);
+  }
+  .stat:last-child { border-bottom: none; }
+  .stat__label {
+    margin-top: 0;
+    text-align: right;
+    max-width: 52%;
+  }
+  .course-card { min-height: 320px; }
+}

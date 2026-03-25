@@ -1,0 +1,389 @@
+/* ============================================================
+   BASE.CSS — Reset, tokens, typography, accessibility
+   ============================================================ */
+
+/* ── 1. Design Tokens ────────────────────────────────────── */
+:root {
+  /* Colors */
+  --c-bg:          #f5f6f8;
+  --c-surface:     #ffffff;
+  --c-surface-2:   #edf0f5;
+  --c-white:       #ffffff;
+  --c-text:        #0d1b2a;
+  --c-off:         #5a6a7a;
+  --c-muted:       #9aaabb;
+
+  --c-primary:     #0a2e6e;
+  --c-primary-hi:  #1245a0;
+  --c-secondary:   #c8102e;
+  --c-secondary-lo: rgba(200, 16, 46, 0.10);
+
+  /* Alias — all existing accent references stay valid */
+  --c-accent:      var(--c-secondary);
+  --c-accent-hi:   #e0182f;
+  --c-accent-lo:   var(--c-secondary-lo);
+
+  /* Section stacking shadow — creates depth between overlapping sections */
+  --shadow-section: 0 -8px 40px rgba(10, 46, 110, 0.10);
+
+  /* Section curve — shared radius for all overlapping section bottom edges */
+  --curve-section: clamp(16px, 3vw, 40px);
+
+  /* Borders */
+  --border-primary: 1px solid rgba(10, 46, 110, 0.15);
+  --border-accent:  1px solid rgba(200, 16, 46, 0.20);
+  --border-muted:   1px solid rgba(10, 46, 110, 0.08);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Barlow', system-ui, sans-serif;
+  --font-label:   'Barlow Condensed', system-ui, sans-serif;
+
+  /* Spacing scale (base 4px) */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* Layout */
+  --max-w:  1400px;
+  --nav-h:  68px;
+  --subnav-h: 44px;
+  --radius: 2px;
+
+  /* App image overlap — controls bleed into adjacent sections */
+  --app-overhang-top:    clamp(40px, 7vw, 100px);
+  --app-overhang-bottom: clamp(60px, 10vw, 140px);
+  --app-overhang-mobile: clamp(90px, 27vw, 140px);
+
+  /* Easing */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+
+  /* Transitions */
+  --t-fast:   150ms;
+  --t-base:   260ms;
+  --t-slow:   500ms;
+  --t-reveal: 900ms;
+}
+
+/* ── 2. Reduced Motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast:   0ms;
+    --t-base:   0ms;
+    --t-slow:   0ms;
+    --t-reveal: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior: auto           !important;
+  }
+}
+
+/* ── 3. Box Model Reset ──────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 4. Document ─────────────────────────────────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.6;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── 5. Focus Styles ─────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--c-secondary);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+/* Skip-to-content — visually hidden until focused by keyboard */
+.skip-link {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  z-index: 9999;
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--c-primary);
+  color: var(--c-white);
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  /* Hidden off-screen until focused */
+  transform: translateY(calc(-100% - var(--sp-6)));
+  transition: transform var(--t-base);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ── 6. Interactive Base ─────────────────────────────────── */
+a         { color: inherit; text-decoration: none; }
+button    { font: inherit; cursor: pointer; border: none; background: none; }
+ul, ol    { list-style: none; }
+img, svg  { display: block; max-width: 100%; }
+textarea  { resize: vertical; }
+
+/* Utility: visually and semantically hide an element */
+.is-hidden { display: none !important; }
+
+/* ── 7. Shared Layout Utility ────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-12);
+}
+
+@media (min-width: 1600px) { .container { padding-inline: var(--sp-8); } }
+@media (max-width: 768px)  { .container { padding-inline: var(--sp-6); } }
+@media (max-width: 400px)  { .container { padding-inline: var(--sp-4); } }
+
+/* Global scroll offset — prevents fixed nav from covering anchor targets */
+[id] {
+  scroll-margin-top: calc(var(--nav-h) + var(--sp-4));
+}
+
+/* ── 8. Scroll-reveal primitives ─────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity   var(--t-reveal) var(--ease-out),
+    transform var(--t-reveal) var(--ease-out);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Clip-path text reveal */
+[data-reveal="clip"] {
+  overflow: hidden;
+  opacity: 1;
+  transform: none;
+}
+[data-reveal="clip"] > .reveal-inner {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition:
+    transform var(--t-reveal) var(--ease-out),
+    opacity 400ms ease;
+}
+[data-reveal="clip"].is-visible > .reveal-inner {
+  transform: none;
+  opacity: 1;
+}
+
+/* Horizontal slide */
+[data-reveal="left"] {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition:
+    opacity   var(--t-reveal) var(--ease-out),
+    transform var(--t-reveal) var(--ease-out);
+}
+[data-reveal="left"].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Line expand */
+[data-reveal="line"] {
+  transform: none;
+  opacity: 1;
+  width: 0;
+  transition: width 1.1s var(--ease-out);
+}
+[data-reveal="line"].is-visible { width: 64px; }
+
+/* Stagger delay helpers */
+[data-delay="1"] { transition-delay: 80ms;  }
+[data-delay="2"] { transition-delay: 160ms; }
+[data-delay="3"] { transition-delay: 240ms; }
+[data-delay="4"] { transition-delay: 320ms; }
+[data-delay="5"] { transition-delay: 400ms; }
+
+/* ── 9. Shared typography utilities ──────────────────────────
+   Used across index.html AND all inner pages.
+   Section-specific classes (e.g. .section-about__eyebrow)
+   should EXTEND these by adding only what differs.
+   ─────────────────────────────────────────────────────────── */
+
+/* Eyebrow — small uppercase label above headings */
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-secondary);
+  margin-bottom: var(--sp-4);
+}
+
+/* Light variant — for use on dark/primary-colour backgrounds */
+.eyebrow--light {
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+}
+
+/* Section heading — display font, bold weight */
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(30px, 3.6vw, 54px);
+  line-height: 1.12;
+  color: var(--c-primary);
+}
+.section-heading em {
+  font-style: italic;
+  color: var(--c-secondary);
+}
+
+/* Section body copy */
+.section-body {
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.78;
+  color: var(--c-off);
+}
+
+/* Auto-gap between consecutive section-body paragraphs.
+   Use .section-body--spaced when a sibling already exists above
+   and no wrapper provides the gap (e.g. flex/grid gap). */
+.section-body + .section-body,
+.section-body--spaced {
+  margin-top: var(--sp-5);
+}
+
+/* ── 10. Shared layout utilities ─────────────────────────────
+   Reusable structural patterns extracted from section classes.
+   ─────────────────────────────────────────────────────────── */
+
+/* Split layout — sidebar tag + main content (used by about, inner pages) */
+.layout-split {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--sp-20);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .layout-split {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+}
+
+/* Two-column layout — equal columns (used by contact, app, inner pages) */
+.layout-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-16);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .layout-two-col {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
+}
+
+/* Card grid — auto-fill, min 280px (used by courses, services, inner pages) */
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: var(--sp-4);
+}
+
+/* ── 11. Section stacking utility ────────────────────────────
+   Any section that participates in the overlap stack
+   gets .section-layer. Modifiers set z-index per layer.
+   ─────────────────────────────────────────────────────────── */
+.section-layer {
+  position: relative;
+  border-radius: 0 0 var(--curve-section) var(--curve-section);
+  margin-top: calc(-1 * var(--curve-section));
+  padding-top: calc(var(--sp-24) + var(--curve-section));
+  box-shadow: var(--shadow-section);
+}
+.section-layer--5 { z-index: 5; }
+.section-layer--4 { z-index: 4; }
+.section-layer--3 { z-index: 3; }
+.section-layer--2 { z-index: 2; }
+.section-layer--1 { z-index: 1; }
+
+/* ── 12. Page hero modifier ──────────────────────────────────
+   Inner pages use .hero--page: shorter, static image,
+   no scroll hint, subtitle slot.
+   ─────────────────────────────────────────────────────────── */
+.hero--page {
+  height: clamp(300px, 55dvh, 520px);
+  min-height: unset;
+}
+/* .hero--page .hero__bg — inner page bg is a static <img>, same object-fit rules apply as the video */
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  max-width: 560px;
+  margin-top: var(--sp-6);
+  text-align: center;
+}
+
+/* Breadcrumb — for inner pages */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-off);
+  margin-bottom: var(--sp-8);
+  flex-wrap: wrap;
+}
+.breadcrumb a {
+  color: var(--c-off);
+  transition: color var(--t-base);
+}
+.breadcrumb a:hover { color: var(--c-secondary); }
+.breadcrumb__sep {
+  color: var(--c-muted);
+  font-size: 10px;
+}
+.breadcrumb__current { color: var(--c-primary); }

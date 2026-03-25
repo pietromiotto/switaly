@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Mental Movie — La formazione linguistica ed emotiva che lascia il segno. Sviluppa inglese e soft skills." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Mental Movie — SW Italy" />
+  <meta property="og:description" content="La potenza del cinema per sviluppare lingua, competenze e consapevolezza in azienda." />
+  <meta property="og:image"       content="img/compressed/jpg/bg-mentalmovie.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://switaly.it/corso-mentalmovie.html" />
+
+  <title>Mental Movie — SW Italy</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" as="style" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Shared stylesheets — same order as index.html -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <!-- Page-specific additions only -->
+  <link rel="stylesheet" href="css/course-page.css" />
+</head>
+<body class="page-course">
+
+  <!-- Skip-to-content — first focusable element, visible on keyboard focus -->
+  <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+
+  <!-- ════════════════════════════════════════
+       MAIN NAV
+       ════════════════════════════════════════ -->
+  <header>
+    <nav id="site-nav" class="nav nav--scrolled" role="navigation" aria-label="Navigazione principale">
+
+      <a href="index.html" class="nav__logo" aria-label="SW Italy — home">
+        <img src="img/logos/logo-swi.png" alt="SW Italy" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+        <li><a href="index.html#corsi">Corsi</a></li>
+        <li><a href="index.html#servizi">Servizi</a></li>
+        <li><a href="index.html#app">App</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+      </ul>
+
+      <a href="https://formazione.switaly.it/login" class="btn btn--login btn--nav">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+        Accedi
+      </a>
+
+      <button
+        id="nav-burger"
+        class="nav__burger"
+        aria-controls="nav-drawer"
+        aria-expanded="false"
+        aria-label="Apri menu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+    </nav>
+
+    <nav id="nav-drawer" class="nav__drawer" role="navigation" aria-label="Navigazione mobile">
+      <a href="index.html#chi-siamo">Chi Siamo</a>
+      <a href="index.html#corsi">Corsi</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#app">App</a>
+      <a href="index.html#contatti">Contatti</a>
+      <a href="https://formazione.switaly.it/login" class="btn btn--login btn--drawer-login">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+        Accedi
+      </a>
+    </nav>
+
+    <!-- ── SUBNAV — sticky breadcrumb + sibling courses ── -->
+    <nav id="site-subnav" class="subnav" aria-label="Breadcrumb e corsi collegati">
+      <div class="subnav__inner">
+
+        <!-- Breadcrumb -->
+        <div class="subnav__breadcrumb-wrap">
+          <ol class="breadcrumb" aria-label="Percorso di navigazione">
+            <li><a href="index.html">Home</a></li>
+            <li aria-hidden="true"><span class="breadcrumb__sep">›</span></li>
+            <li><a href="index.html#corsi">Corsi</a></li>
+            <li aria-hidden="true"><span class="breadcrumb__sep">›</span></li>
+            <li><span class="breadcrumb__current" aria-current="page">Mental Movie</span></li>
+          </ol>
+        </div>
+
+        <!-- Sibling course links -->
+        <ul class="subnav__siblings" role="list" aria-label="Altri corsi linguistici">
+          <li><a href="corso-swenglish.html">SW English</a></li>
+          <li><a href="corso-languagefocus.html">Language Focus</a></li>
+          <li><a href="corso-mentalmovie.html" aria-current="page">Mental Movie</a></li>
+          <li><a href="corso-swfinance.html">SW Finance</a></li>
+          <li><a href="corso-manageriale.html">Manageriale</a></li>
+          <li><a href="corso-ai.html">Corsi AI</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ════════════════════════════════════════
+       MAIN
+       ════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO — split overlay, desktop only ── -->
+    <section class="hero hero--course" aria-labelledby="course-heading">
+
+      <picture>
+        <source srcset="img/compressed/avif/bg-mentalmovie.avif" type="image/avif">
+        <source srcset="img/compressed/webp/bg-mentalmovie.webp" type="image/webp">
+        <img
+        class="hero__bg"
+        src="img/compressed/jpg/bg-mentalmovie.jpg"
+        alt=""
+        aria-hidden="true"
+        style="object-position: center;"
+      />
+      </picture>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <!-- Desktop text — two-column: empty left, logo + text right on blue -->
+      <div class="hero__content">
+
+        <!-- Empty div acts as the left column (sits over the clear image) -->
+        <div aria-hidden="true"></div>
+
+        <!-- Right column — sits on the blue overlay, holds logo and text -->
+        <div class="hero__right-col">
+          
+          <div class="hero__text-col">
+            <p class="eyebrow hero__eyebrow" data-reveal>Corsi linguistici</p>
+            <h1 class="hero__title" id="course-heading">
+              <span data-reveal="clip"><span class="reveal-inner">Mental</span></span>
+              <span data-reveal="clip"><span class="reveal-inner"><em>Movie</em></span></span>
+            </h1>
+            <p class="hero__subtitle" data-reveal>
+              La formazione linguistica ed emotiva che lascia il segno.<br>Non è una lezione, è un'esperienza.
+            </p>
+          </div>
+          
+          <img class="hero__logo" src="img/logos/logo-mentalmovie.png" alt="Mental Movie" />
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ── MOBILE: text block below hero image ── -->
+    <div class="course-intro" aria-hidden="true">
+      <img class="hero__logo" src="img/logos/logo-mentalmovie.png" alt="Mental Movie" />
+      <p class="eyebrow hero__eyebrow">Corsi linguistici</p>
+      <h2 class="hero__title">Mental <em>Movie</em></h2>
+      <p class="hero__subtitle">
+        La formazione linguistica ed emotiva che lascia il segno. Non è una lezione, è un'esperienza.
+      </p>
+    </div>
+
+
+    <!-- ── SECTION 1: Pillars + intro ─────────── -->
+    <section
+      class="section-layer section-layer--3"
+      style="background: var(--c-surface); padding-bottom: var(--sp-24);"
+      aria-labelledby="pillars-heading"
+    >
+      <div class="container">
+
+        <!-- 3 feature pillars -->
+        <div class="pillars" role="list">
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M16 4l4 8h8l-6 5 2 9-8-6-8 6 2-9-6-5h8z"/>
+            </svg>
+            <div class="pillar__title">Metodo Esperienziale</div>
+            <p class="pillar__body">Utilizza scene selezionate da film famosi per allenare lingua e intelligenza emotiva.</p>
+          </div>
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M10 8v16M22 8v16M4 16h24"/>
+              <circle cx="16" cy="16" r="8"/>
+            </svg>
+            <div class="pillar__title">Sviluppo Integrato</div>
+            <p class="pillar__body">Il corso unisce grammatica e vocabolario allo sviluppo di vere soft skills strategiche.</p>
+          </div>
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="16" cy="16" r="12"/>
+              <path d="M12 16h8M16 12v8"/>
+            </svg>
+            <div class="pillar__title">Partecipazione Attiva</div>
+            <p class="pillar__body">Nessuno spazio alla passività: tutti i partecipanti riflettono, discutono e analizzano.</p>
+          </div>
+
+        </div>
+
+        <!-- Intro text -->
+        <div class="layout-split">
+          <p class="section-about__tag eyebrow" data-reveal="left">Il programma</p>
+          <div>
+            <div class="section-about__line" data-reveal="line" aria-hidden="true"></div>
+            <h2 class="section-about__heading section-heading" id="pillars-heading">
+              <span data-reveal="clip"><span class="reveal-inner">La potenza del cinema</span></span>
+              <span data-reveal="clip"><span class="reveal-inner">per sviluppare <em>consapevolezza</em></span></span>
+            </h2>
+            <p class="section-body" data-reveal>
+              Mental Movie è un corso unico nel suo genere: un metodo esperienziale che utilizza 
+              scene selezionate da film e serie famose per allenare inglese, comunicazione, 
+              soft skills e intelligenza emotiva in modo coinvolgente.
+            </p>
+            <p class="section-body section-body--spaced" data-reveal>
+              Grazie alla forza narrativa del cinema, i partecipanti si immergono in situazioni 
+              reali, analizzano dinamiche comportamentali e riflettono su come trasformare quelle 
+              intuizioni in competenze applicabili direttamente sul lavoro.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── SECTION 2: How it works ────────────── -->
+    <section
+      class="section-layer section-layer--2"
+      style="background: var(--c-bg); padding-bottom: var(--sp-24);"
+      aria-labelledby="method-heading"
+    >
+      <div class="container">
+
+        <h2 class="section-heading" id="method-heading" style="margin-bottom: var(--sp-12);">
+          <span data-reveal="clip"><span class="reveal-inner">Perché Mental Movie</span></span>
+          <span data-reveal="clip"><span class="reveal-inner"><em>funziona</em>?</span></span>
+        </h2>
+
+        <div class="method-block" data-reveal>
+          <svg class="method-block__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <path d="M20 5l3 9h9l-7.5 5.5 3 9L20 24l-7.5 4.5 3-9L8 14h9z"/>
+          </svg>
+          <div>
+            <div class="method-block__title">L’apprendimento DIVENTA ESPERIENZA</div>
+            <p class="method-block__body">
+              Non si studia teoria: ci si immerge in emozioni, dialoghi autentici e situazioni credibili 
+              che rendono l’apprendimento naturale. Ogni incontro è fluido e memorabile.
+            </p>
+          </div>
+        </div>
+
+        <div class="method-block" data-reveal>
+          <svg class="method-block__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <polyline points="7 25 15 15 22 20 30 10"/>
+            <circle cx="30" cy="10" r="3"/>
+          </svg>
+          <div>
+            <div class="method-block__title">LINGUA E COMPETENZE INSIEME</div>
+            <p class="method-block__body">
+              Migliora comunicazione, leadership, gestione emotiva e capacità di interazione in inglese,
+              con una struttura che unisce crescita personale e professionalità manageriale reale.
+            </p>
+          </div>
+        </div>
+
+        <div class="method-block" data-reveal>
+          <svg class="method-block__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+            <rect x="5" y="10" width="30" height="24" rx="2"/>
+            <path d="M5 16h30M14 10V7M26 10V7"/>
+            <path d="M11 23l4 4 9-9"/>
+          </svg>
+          <div>
+            <div class="method-block__title">TEMI FORTI dai film più amati</div>
+            <p class="method-block__body">
+              Scene selezionate per rispondere alle esigenze aziendali: Public Speaking, Sales, Teamwork,
+              Motivation, Management e Relationship. Il vocabolario viene appreso nel suo contesto esatto.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── SECTION 3: Outcomes ────────────────── -->
+    <section
+      class="section-layer section-layer--2"
+      style="background: var(--c-surface-2); padding-bottom: var(--sp-24);"
+      aria-labelledby="outcomes-heading"
+    >
+      <div class="container">
+        <div class="layout-two-col">
+
+          <div>
+            <p class="eyebrow" data-reveal>Risultati concreti</p>
+            <h2 class="section-heading" id="outcomes-heading" data-reveal style="margin-bottom: var(--sp-8);">
+              I benefici per<br><em>aziende</em> e professionisti
+            </h2>
+            <ul class="outcomes" data-reveal>
+              <li>Sviluppo immediato e reale di soft skills e leadership empatica.</li>
+              <li>Miglioramento linguistico naturale in situazioni concrete.</li>
+              <li>Maggiore fiducia nella propria comunicazione internazionale.</li>
+              <li>Modello formativo altamente ingaggiante che favorisce il Team Building.</li>
+              <li>Un ritorno immediato sulla gestione e risoluzione dei problemi comunicativi.</li>
+            </ul>
+          </div>
+
+          <!-- Welfare block -->
+          <div class="service-block" data-reveal style="align-self: start;">
+            <svg class="service-block__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M18 30s-13-8-13-17a7 7 0 0114 0 7 7 0 0114 0c0 9-15 17-15 17z"/>
+            </svg>
+            <div class="service-block__title">Welfare Aziendale</div>
+            <p class="service-block__body">
+              I nostri corsi sono disponibili sulle principali piattaforme di welfare
+              (DoubleYou, Edenred, AON). Finanzia la formazione del tuo team attraverso
+              il piano welfare aziendale.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── CTA BAND ───────────────────────────── -->
+    <div
+      class="cta-band"
+      style="background: var(--c-primary);"
+    >
+      <div class="container" style="text-align: center;">
+        <p class="eyebrow eyebrow--light" data-reveal>Inizia oggi</p>
+        <h2 class="cta-band__heading" data-reveal>
+          Trasforma la comunicazione in un momento<br>di <em style="font-style:italic; color:var(--c-secondary);">vera ispirazione</em>
+        </h2>
+        <p class="cta-band__sub" data-reveal>
+          Compila il modulo di contatto e ti risponderemo entro 24 ore.
+        </p>
+        <div data-reveal>
+          <a
+            href="index.html#contatti"
+            class="btn btn--secondary js-course-cta"
+            data-course="Mental Movie"
+            aria-label="Richiedi informazioni su Mental Movie"
+          >
+            Richiedi Informazioni
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER (identical to index.html)
+       ════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer__text">© 2026 All Rights Reserved — SW Italy</p>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script type="module" src="js/inner-page.js"></script>
+
+  <!-- Noscript fallback: expose all content if JS is disabled -->
+  <noscript>
+    <style>
+      [data-reveal],
+      .nav__logo,
+      .btn--nav {
+        opacity: 1 !important;
+        transform: none !important;
+        width: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      [data-reveal="clip"] > .reveal-inner {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    </style>
+  </noscript>
+
+</body>
+</html>
+
+

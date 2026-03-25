@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Corsi AI — Formazione in Intelligenza Artificiale per aziende, team e professionisti." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Corsi AI — Innovare oggi, guidare domani" />
+  <meta property="og:description" content="Percorsi completi dalle basi fino alle applicazioni più evolute per cogliere le opportunità offerte dall'AI." />
+  <meta property="og:image"       content="img/compressed/jpg/bg-ai.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://switaly.it/corso-ai.html" />
+
+  <title>Corsi AI — SW Italy</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" as="style" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Shared stylesheets -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <!-- Page-specific additions -->
+  <link rel="stylesheet" href="css/course-page.css" />
+</head>
+<body class="page-course">
+
+  <!-- Skip-to-content — first focusable element, visible on keyboard focus -->
+  <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+
+  <!-- ════════════════════════════════════════
+       MAIN NAV
+       ════════════════════════════════════════ -->
+  <header>
+    <nav id="site-nav" class="nav nav--scrolled" role="navigation" aria-label="Navigazione principale">
+
+      <a href="index.html" class="nav__logo" aria-label="SW Italy — home">
+        <img src="img/logos/logo-swi.png" alt="SW Italy" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+        <li><a href="index.html#corsi">Corsi</a></li>
+        <li><a href="index.html#servizi">Servizi</a></li>
+        <li><a href="index.html#app">App</a></li>
+        <li><a href="index.html#contatti">Contatti</a></li>
+      </ul>
+
+      <a href="https://formazione.switaly.it/login" class="btn btn--login btn--nav">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+        Accedi
+      </a>
+
+      <button
+        id="nav-burger"
+        class="nav__burger"
+        aria-controls="nav-drawer"
+        aria-expanded="false"
+        aria-label="Apri menu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+    </nav>
+
+    <nav id="nav-drawer" class="nav__drawer" role="navigation" aria-label="Navigazione mobile">
+      <a href="index.html#chi-siamo">Chi Siamo</a>
+      <a href="index.html#corsi">Corsi</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#app">App</a>
+      <a href="index.html#contatti">Contatti</a>
+      <a href="https://formazione.switaly.it/login" class="btn btn--login btn--drawer-login">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+        Accedi
+      </a>
+    </nav>
+
+    <!-- ── SUBNAV — sticky breadcrumb + sibling courses ── -->
+    <nav id="site-subnav" class="subnav" aria-label="Breadcrumb e corsi collegati">
+      <div class="subnav__inner">
+
+        <!-- Breadcrumb -->
+        <div class="subnav__breadcrumb-wrap">
+          <ol class="breadcrumb" aria-label="Percorso di navigazione">
+            <li><a href="index.html">Home</a></li>
+            <li aria-hidden="true"><span class="breadcrumb__sep">›</span></li>
+            <li><a href="index.html#corsi">Corsi</a></li>
+            <li aria-hidden="true"><span class="breadcrumb__sep">›</span></li>
+            <li><span class="breadcrumb__current" aria-current="page">Corsi AI</span></li>
+          </ol>
+        </div>
+
+        <!-- Sibling course links -->
+        <ul class="subnav__siblings" role="list" aria-label="Altri corsi linguistici">
+          <li><a href="corso-swenglish.html">SW English</a></li>
+          <li><a href="corso-languagefocus.html">Language Focus</a></li>
+          <li><a href="corso-mentalmovie.html">Mental Movie</a></li>
+          <li><a href="corso-swfinance.html">SW Finance</a></li>
+          <li><a href="corso-manageriale.html">Manageriale</a></li>
+          <li><a href="corso-ai.html" aria-current="page">Corsi AI</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       MAIN
+       ════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO — split overlay, desktop only ── -->
+    <section class="hero hero--course" aria-labelledby="course-heading">
+
+      <picture>
+        <source srcset="img/compressed/avif/bg-ai.avif" type="image/avif">
+        <source srcset="img/compressed/webp/bg-ai.webp" type="image/webp">
+        <img
+        class="hero__bg"
+        src="img/compressed/jpg/bg-ai.jpg"
+        alt=""
+        aria-hidden="true"
+        style="object-position: top center;"
+      />
+      </picture>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <!-- Desktop text — two-column -->
+      <div class="hero__content">
+        <div aria-hidden="true"></div>
+
+        <!-- Right column -->
+        <div class="hero__right-col" style="grid-template-columns: 1fr;">
+          
+          <div class="hero__text-col" style="text-align: center; margin: 0 auto; max-width: 650px;">
+            <p class="eyebrow hero__eyebrow" data-reveal>Innovare oggi, guidare domani</p>
+            <h1 class="hero__title" id="course-heading">
+              <span data-reveal="clip"><span class="reveal-inner">Corsi</span></span>
+              <span data-reveal="clip"><span class="reveal-inner"><em>AI</em></span></span>
+            </h1>
+            <p class="hero__subtitle" data-reveal>
+              Nel mondo di oggi, l’intelligenza artificiale non è più un’opzione: è una leva strategica per accompagnare le aziende verso le applicazioni più evolute.
+            </p>
+          </div>
+          
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ── MOBILE: text block below hero image ── -->
+    <div class="course-intro" aria-hidden="true">
+      <p class="eyebrow hero__eyebrow">Innovare oggi, guidare domani</p>
+      <h2 class="hero__title">Corsi <em>AI</em></h2>
+      <p class="hero__subtitle">
+        Nel mondo di oggi, l’intelligenza artificiale non è più un’opzione: è una leva strategica per accompagnare le aziende verso le applicazioni più evolute.
+      </p>
+    </div>
+
+    <!-- ── SECTION 1: Cosa Offriamo (Pillars) ─────────── -->
+    <section
+      class="section-layer section-layer--3"
+      style="background: var(--c-surface); padding-top: calc(var(--sp-12) + var(--curve-section)); padding-bottom: var(--sp-24);"
+      aria-labelledby="pillars-heading"
+    >
+      <div class="container">
+
+        <!-- 4 feature pillars -->
+        <div class="pillars" role="list">
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="6" y="6" width="20" height="20" rx="3"/>
+              <path d="M12 16h8"/>
+              <circle cx="16" cy="16" r="8"/>
+            </svg>
+            <div class="pillar__title">Fondamenti AI e ML</div>
+            <p class="pillar__body">Scopri i concetti chiave dell’AI, come funzionano gli algoritmi, i limiti attuali e dove si collocano oggi nella pratica aziendale.</p>
+          </div>
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M4 16h24M16 4v24"/>
+              <path d="M22 10l-12 12M10 10l12 12"/>
+            </svg>
+            <div class="pillar__title">Strumenti Generativi</div>
+            <p class="pillar__body">Impara a usare modelli come ChatGPT e piattaforme di automazione flussi per marketing, produzione, e servizio clienti.</p>
+          </div>
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M16 3l10 4v8c0 7-5 13-10 14-5-1-10-7-10-14V7l10-4z"/>
+              <path d="M11 15l4 4 6-8"/>
+            </svg>
+            <div class="pillar__title">Governance e Privacy</div>
+            <p class="pillar__body">Affrontiamo le sfide della responsabilità, della protezione dei dati aziendali e del rispetto delle direttive normative.</p>
+          </div>
+
+          <div class="pillar" data-reveal role="listitem">
+            <svg class="pillar__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M24 6l6 6-16 16H8v-6L24 6z"/>
+              <path d="M20 10l6 6"/>
+            </svg>
+            <div class="pillar__title">Casi Pratici Formativi</div>
+            <p class="pillar__body">Non teoria astratta: ogni modulo prevede esercitazioni, esempi reali e strategie per integrare subito l’AI nei processi.</p>
+          </div>
+
+        </div>
+
+        <!-- Intro text -->
+        <div class="layout-split">
+          <p class="section-about__tag eyebrow" data-reveal="left">Il quadro generale</p>
+          <div>
+            <div class="section-about__line" data-reveal="line" aria-hidden="true"></div>
+            <h2 class="section-about__heading section-heading" id="pillars-heading">
+              <span data-reveal="clip"><span class="reveal-inner">Costruisci una</span></span>
+              <span data-reveal="clip"><span class="reveal-inner"><em>roadmap AI per la tua azienda.</em></span></span>
+            </h2>
+            <p class="section-body" data-reveal>
+              Aumenta la produttività e posizionati in anticipo rispetto alla concorrenza. 
+              Per operatori, back-office, manager o top-management: scegli il livello giusto, 
+              personalizza il ritmo e accedi ai contenuti da qualunque dispositivo.
+            </p>
+            <p class="section-body section-body--spaced section-body--callout" data-reveal>
+              SW Italy trasforma l'AI da concetto a vantaggio competitivo concreto.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: Programma (Moduli Doppia Colonna) ────────────── -->
+    <section
+      class="section-layer section-layer--2"
+      style="background: var(--c-bg); padding-bottom: var(--sp-24);"
+      aria-labelledby="moduli-heading"
+    >
+      <div class="container">
+
+        <div class="section-courses__header" style="margin-bottom: var(--sp-12);">
+          <div>
+            <p class="eyebrow" data-reveal>L'offerta didattica</p>
+            <h2 class="section-heading" id="moduli-heading">
+              <span data-reveal="clip"><span class="reveal-inner">I nostri</span></span>
+              <span data-reveal="clip"><span class="reveal-inner"><em>corsi a catalogo</em></span></span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="layout-two-col">
+
+          <!-- Left Column (Base / Intermedio) -->
+          <div class="course-modules-col">
+            
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--base">Base • 4h</p>
+              <h3 class="course-module__title">Introduzione all’Intelligenza Artificiale</h3>
+              <p class="course-module__body">Fondamenti di AI e Machine Learning per non specialisti. Come funziona, dove si applica, perché è strategica.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--base">Intermedio • 6h</p>
+              <h3 class="course-module__title">Prompt Engineering & Modelli Generativi</h3>
+              <p class="course-module__body">Apprendimento delle migliori tecniche per strutturare prompt efficaci e interfacciarsi con LLM di ultima generazione.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--base">Intermedio • 5h</p>
+              <h3 class="course-module__title">Content Creation con AI</h3>
+              <p class="course-module__body">Realizzazione di testi, grafiche e contenuti multimediali in ambito marketing e comunicazione aziendale.</p>
+            </div>
+            
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--base">Base • 4h</p>
+              <h3 class="course-module__title">AI per la produttività in Excel e Office</h3>
+              <p class="course-module__body">Integrazione delle funzionalità AI emergenti nel pacchetto Office e automatizzare la scrittura e il data entry.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--base">Base • 4h</p>
+              <h3 class="course-module__title">AI per Operatori e Back Office</h3>
+              <p class="course-module__body">Soluzioni quotidiane e tool basati su AI per efficientare flussi documentali e accorciare i tempi amministrativi.</p>
+            </div>
+
+          </div>
+
+          <!-- Right Column (Avanzato / Manageriali) -->
+          <div class="course-modules-col">
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--advanced">Avanzato • 8h</p>
+              <h3 class="course-module__title">Automazione con n8n e strumenti AI</h3>
+              <p class="course-module__body">Creazione di workflow complessi, collegamento tra API differenti e iniezione di AI nelle automazioni aziendali.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--advanced">Manager • 1 giorno</p>
+              <h3 class="course-module__title">AI Strategy & Roadmap per Aziende</h3>
+              <p class="course-module__body">Come implementare l'AI cross-department, misurare il ROI e definire priorità tecnologiche esecutive.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--advanced">Avanzato • 2 giorni</p>
+              <h3 class="course-module__title">Machine Learning Pratico</h3>
+              <p class="course-module__body">Formazione immersiva per analizzare grandi moli di dati ed esserne predittivi con i modelli ML primari.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--advanced">Manager • 6h</p>
+              <h3 class="course-module__title">AI per Manager e Leadership</h3>
+              <p class="course-module__body">Guidare la trasformazione digitale dei dipartimenti, delegare task a tool automatizzati ed elevare le operation.</p>
+            </div>
+
+            <div data-reveal>
+              <p class="course-module__badge course-module__badge--base">Tutti • 3h</p>
+              <h3 class="course-module__title">Etica, Governance e Privacy nell’AI</h3>
+              <p class="course-module__body">Inquadramento legale su copyright, GDPR applicato e confini etici dell'uso generativo.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: Destinatari / Welfare ────────────────── -->
+    <section
+      class="section-layer section-layer--2"
+      style="background: var(--c-surface-2); padding-bottom: var(--sp-24);"
+      aria-labelledby="outcomes-heading"
+    >
+      <div class="container">
+        <div class="layout-two-col">
+
+          <div>
+            <p class="eyebrow" data-reveal>A chi si rivolgono</p>
+            <h2 class="section-heading" id="outcomes-heading" data-reveal style="margin-bottom: var(--sp-8);">
+              I destinatari<br>della <em>transizione</em>
+            </h2>
+            
+            <div class="audience-block" data-reveal>
+              <h4 class="audience-block__title">Top management e leadership aziendale</h4>
+              <p class="section-body">Che devono definire strategie AI, valutare investimenti e gestire l’adozione e il cambiamento.</p>
+            </div>
+            
+            <div class="audience-block" data-reveal>
+              <h4 class="audience-block__title">Team leader e responsabili operativi</h4>
+              <p class="section-body">Che vogliono implementare l’AI nelle funzioni aziendali per migliorare efficienza, qualità, e costi.</p>
+            </div>
+
+            <div data-reveal>
+              <h4 class="audience-block__title">Professionisti e collaboratori</h4>
+              <p class="section-body">Che desiderano acquisire competenze pratiche su automazione, tool generativi e workflow intelligenti.</p>
+            </div>
+          </div>
+
+          <!-- Welfare block -->
+          <div class="service-block" data-reveal style="align-self: start;">
+            <svg class="service-block__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M18 30s-13-8-13-17a7 7 0 0114 0 7 7 0 0114 0c0 9-15 17-15 17z"/>
+            </svg>
+            <div class="service-block__title">Welfare Aziendale</div>
+            <p class="service-block__body">
+              I nostri corsi sono disponibili sulle principali piattaforme di welfare
+              (DoubleYou, Edenred, AON). Finanzia la formazione del tuo team attraverso
+              il piano welfare per lo sviluppo digitale.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BAND ───────────────────────────── -->
+    <div
+      class="cta-band"
+      style="background: var(--c-primary);"
+    >
+      <div class="container" style="text-align: center;">
+        <p class="eyebrow eyebrow--light" data-reveal>Richiedi una consulenza</p>
+        <h2 class="cta-band__heading" data-reveal>
+          Porta l'Intelligenza Artificiale<br>nei tuoi <em style="font-style:italic; color:var(--c-secondary);">processi quotidiani</em>
+        </h2>
+        <p class="cta-band__sub" data-reveal>
+          Invia i tuoi dati tramite il modulo e costruiremo insieme la tua roadmap AI.
+        </p>
+        <div data-reveal>
+          <a
+            href="index.html#contatti"
+            class="btn btn--secondary js-course-cta"
+            data-course="Corsi AI"
+            aria-label="Richiedi informazioni sui Corsi AI"
+          >
+            Richiedi Informazioni
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer__text">© 2026 All Rights Reserved — SW Italy</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/inner-page.js"></script>
+
+  <!-- Noscript fallback: expose all content if JS is disabled -->
+  <noscript>
+    <style>
+      [data-reveal],
+      .nav__logo,
+      .btn--nav {
+        opacity: 1 !important;
+        transform: none !important;
+        width: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      [data-reveal="clip"] > .reveal-inner {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    </style>
+  </noscript>
+
+</body>
+</html>
+
+

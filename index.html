@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="SW Italy — Soluzioni personalizzate per la gestione dei processi formativi nel mondo B2B: competenze linguistiche, manageriali e digitali." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="SW Italy — Innovazione attraverso la formazione" />
+  <meta property="og:description" content="Trasformiamo le aziende partendo dalle persone." />
+  <meta property="og:image"       content="img/compressed/jpg/og-bg.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://switaly.it/" />
+
+  <title>SW Italy — Innovazione attraverso la formazione</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" as="style" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Skip-to-content — first focusable element, visible on keyboard focus -->
+  <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+
+  <!-- ════════════════════════════════════════
+       HEADER / NAV
+       ════════════════════════════════════════ -->
+  <header>
+    <nav id="site-nav" class="nav" role="navigation" aria-label="Navigazione principale">
+
+      <a href="index.html" class="nav__logo" aria-label="SW Italy — home">
+        <img src="img/logos/logo-swi.png" alt="SW Italy" width="120" height="40" loading="eager" fetchpriority="high" decoding="async" />
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#corsi">Corsi</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#app">App</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+
+      <!-- Login button -->
+      <a href="https://formazione.switaly.it/login" class="btn btn--login btn--nav" aria-label="Accedi alla piattaforma">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+        Accedi
+      </a>
+
+      <button
+        id="nav-burger"
+        class="nav__burger"
+        aria-controls="nav-drawer"
+        aria-expanded="false"
+        aria-label="Apri menu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+    </nav>
+
+    <nav
+      id="nav-drawer"
+      class="nav__drawer"
+      role="navigation"
+      aria-label="Navigazione mobile"
+    >
+      <a href="#chi-siamo">Chi Siamo</a>
+      <a href="#corsi">Corsi</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#app">App</a>
+      <a href="#contatti">Contatti</a>
+      <a href="https://formazione.switaly.it/login" class="btn btn--login btn--drawer-login">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="8" cy="5" r="3"/>
+          <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+        </svg>
+        Accedi
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- ════════════════════════════════════════
+       MAIN
+       ════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── SEZIONE 1: HERO ────────────────── -->
+
+    <!-- Block A: Visual -->
+    <section class="hero" aria-label="Hero">
+      <video
+        class="hero__bg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+      >
+        <source src="img/compressed/hero-bg.mp4" type="video/mp4" />
+        <source src="img/compressed/hero-bg.webm" type="video/webm" />
+      </video>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <h1 class="hero__title">
+          <span data-reveal="clip"><span class="reveal-inner">Innovazione attraverso</span></span>
+          <span data-reveal="clip"><span class="reveal-inner">la <em>formazione</em></span></span>
+        </h1>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-label">Scorri</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Block B: Text strip -->
+    <div class="hero-strip" role="complementary" aria-label="Sottotitolo">
+      <div class="hero-strip__inner">
+        <p class="hero-strip__text" data-reveal>
+          Trasformiamo le aziende partendo dalle persone.
+          Soluzioni personalizzate per la gestione dei processi formativi
+          nel mondo B2B: <strong>competenze linguistiche, manageriali e digitali</strong>.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- ── SEZIONE 2: CHI SIAMO ───────────── -->
+    <section class="section-about section-layer section-layer--3" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="layout-split">
+
+          <div class="section-about__tag eyebrow" id="chi-siamo" data-reveal="left">Il nostro approccio</div>
+
+          <div>
+            <div class="section-about__line" data-reveal="line" aria-hidden="true"></div>
+
+            <h2 class="section-about__heading" id="about-heading">
+              <span data-reveal="clip"><span class="reveal-inner">Crediamo che l'innovazione</span></span>
+              <span data-reveal="clip"><span class="reveal-inner">sia un <em>viaggio continuo</em></span></span>
+            </h2>
+
+            <p class="section-about__body" data-reveal>
+              Accompagniamo imprese e professionisti con percorsi su misura,
+              guidati dai nostri docenti esperti e supportati da piattaforme
+              all'avanguardia.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="stats-bar" role="region" aria-label="Numeri chiave">
+        <ul class="stats-bar__inner" role="list">
+
+          <li class="stat" data-reveal>
+            <div class="stat__number">
+              <span data-counter data-target="20000" data-duration="2000">0</span><span class="stat__suffix" aria-hidden="true">+</span>
+            </div>
+            <div class="stat__label">Ore di corso erogate</div>
+          </li>
+
+          <li class="stat" data-reveal>
+            <div class="stat__number">
+              <span data-counter data-target="2000" data-duration="1800">0</span><span class="stat__suffix" aria-hidden="true">+</span>
+            </div>
+            <div class="stat__label">Studenti formati</div>
+          </li>
+
+          <li class="stat" data-reveal>
+            <div class="stat__number">
+              <span data-counter data-target="148" data-duration="1500">0</span>
+            </div>
+            <div class="stat__label">Docenti e consulenti</div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ── SEZIONE 3: CORSI ───────────────── -->
+    <section class="section-courses section-layer section-layer--2" aria-labelledby="corsi-heading">
+      <div class="container">
+
+        <div class="section-courses__header">
+          <div>
+            <p class="eyebrow" id="corsi" data-reveal>La nostra offerta</p>
+            <h2 class="section-heading" id="corsi-heading">
+              <span data-reveal="clip"><span class="reveal-inner">I Nostri</span></span>
+              <span data-reveal="clip"><span class="reveal-inner"><em>Corsi</em></span></span>
+            </h2>
+          </div>
+        </div>
+
+        <ul class="courses-grid" role="list">
+
+          <!-- Card 1 — logo size: adjust --card-logo-h inline to taste -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-swenglish.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-swenglish.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-swenglish.jpg" alt="" loading="lazy" style="object-position: 10% 25%;" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <img class="course-card__logo" style="--card-logo-h: 56px;" src="img/logos/logo-swi.png" alt="Logo SW English" width="180" height="56" />
+            <div class="course-card__content">
+              <h3 class="course-card__title">Il Metodo SW English</h3>
+              <p class="course-card__body">90 livelli e docenti madrelingua per dominare l'inglese, con focus su fonetica e materiali interattivi.</p>
+              <a href="corso-swenglish.html" class="btn btn--ghost course-card__btn">Scopri il programma</a>
+            </div>
+          </li>
+
+          <!-- Card 2 — logo size: adjust --card-logo-h inline to taste -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-languagefocus.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-languagefocus.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-languagefocus.jpg" alt="" loading="lazy" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <img class="course-card__logo" style="--card-logo-h: 56px;" src="img/logos/logo-languagefocus.png" alt="Logo Language Focus" width="180" height="56" />
+            <div class="course-card__content">
+              <h3 class="course-card__title">Language Focus</h3>
+              <p class="course-card__body">Oltre 500 sessioni di General e Business English per perfezionarsi nel proprio settore.</p>
+              <a href="corso-languagefocus.html" class="btn btn--ghost course-card__btn">Scopri il programma</a>
+            </div>
+          </li>
+
+          <!-- Card 3 — logo size: adjust --card-logo-h inline to taste -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-mentalmovie.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-mentalmovie.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-mentalmovie.jpg" alt="" loading="lazy" style="object-position: 5% 25%;" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <img class="course-card__logo" style="--card-logo-h: 56px;" src="img/logos/logo-mentalmovie.png" alt="Logo Mental Movie" width="180" height="56" />
+            <div class="course-card__content">
+              <h3 class="course-card__title">Mental Movie</h3>
+              <p class="course-card__body">L'inglese attraverso il grande schermo per simulare e padroneggiare dinamiche aziendali complesse.</p>
+              <a href="corso-mentalmovie.html" class="btn btn--ghost course-card__btn">Scopri il programma</a>
+            </div>
+          </li>
+
+          <!-- Card 4 — logo size: adjust --card-logo-h inline to taste -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-swfinance.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-swfinance.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-swfinance.jpg" alt="" loading="lazy" style="object-position: 10% 25%;" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <img class="course-card__logo" style="--card-logo-h: 80px;" src="img/logos/logo-swfinance.png" alt="Logo SW Finance" width="180" height="80" />
+            <div class="course-card__content">
+              <h3 class="course-card__title">SW Finance</h3>
+              <p class="course-card__body">Percorsi linguistici tecnici dedicati a dirigenti del mondo bancario, assicurativo e corporate.</p>
+              <a href="corso-swfinance.html" class="btn btn--ghost course-card__btn">Scopri il programma</a>
+            </div>
+          </li>
+
+          <!-- Card 5 — internal anchor, NOT external page -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-lingue.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-lingue.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-lingue.jpg" alt="" loading="lazy" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <div class="course-card__content">
+              <h3 class="course-card__title">Le altre lingue</h3>
+              <p class="course-card__body">Programmi su misura con docenti madrelingua per francese, tedesco, spagnolo, russo, arabo e altro.</p>
+              <a href="#contatti" class="btn btn--ghost course-card__btn js-course-cta" data-course="Le altre lingue">Richiedi info</a>
+            </div>
+          </li>
+
+          <!-- Card 6 -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-manageriale.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-manageriale.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-manageriale.jpg" alt="" loading="lazy" style="object-position: 3% 25%;" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <div class="course-card__content">
+              <h3 class="course-card__title">Formazione Manageriale</h3>
+              <p class="course-card__body">Sviluppa le soft skill chiave per il tuo team: leadership, comunicazione efficace e time management.</p>
+              <a href="corso-manageriale.html" class="btn btn--ghost course-card__btn">Scopri il programma</a>
+            </div>
+          </li>
+
+          <!-- Card 7 -->
+          <li class="course-card" data-reveal>
+            <picture class="course-card__bg" aria-hidden="true">
+              <source srcset="img/compressed/avif/bg-ai.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-ai.webp" type="image/webp">
+              <img src="img/compressed/jpg/bg-ai.jpg" alt="" loading="lazy" />
+            </picture>
+            <div class="course-card__overlay" aria-hidden="true"></div>
+            <div class="course-card__content">
+              <h3 class="course-card__title">Corsi AI</h3>
+              <p class="course-card__body">Dalle basi all'automazione: impara a utilizzare modelli generativi e integrare l'AI nei flussi di lavoro.</p>
+              <a href="corso-ai.html" class="btn btn--ghost course-card__btn">Scopri il programma</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ── SEZIONE 4: SERVIZI ─────────────── -->
+    <section class="section-services section-layer section-layer--2" aria-labelledby="servizi-heading">
+      <div class="container">
+
+        <div class="section-services__header">
+          <p class="eyebrow" id="servizi" data-reveal>Per le aziende</p>
+          <h2 class="section-services__heading section-heading" id="servizi-heading">
+            <span data-reveal="clip"><span class="reveal-inner">Oltre la docenza:</span></span>
+            <span data-reveal="clip"><span class="reveal-inner">i nostri <em>servizi</em> per le aziende</span></span>
+          </h2>
+        </div>
+
+        <ul class="services-grid" role="list">
+
+          <li class="service-block" data-reveal>
+            <!-- Finance icon -->
+            <svg class="service-block__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="4" y="10" width="28" height="20" rx="2"/>
+              <path d="M4 16h28M12 22h4M20 22h4"/>
+              <path d="M12 6l6-2 6 2"/>
+            </svg>
+            <div class="service-block__title">Gestione Finanziamenti</div>
+            <p class="service-block__body">Supporto completo dalla progettazione alla rendicontazione per accedere ai fondi interprofessionali (Fondir, Forte, Fondimpresa, ecc.).</p>
+            <a href="servizio-finanziamenti.html" class="service-block__link" aria-label="Scopri di più su Gestione Finanziamenti">
+              Scopri di più
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </li>
+
+          <li class="service-block" data-reveal>
+            <!-- Events icon -->
+            <svg class="service-block__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="18" cy="18" r="13"/>
+              <path d="M18 10v8l5 3"/>
+              <path d="M8 6l3 3M28 6l-3 3"/>
+            </svg>
+            <div class="service-block__title">Eventi Formativi</div>
+            <p class="service-block__body">Ideazione di eventi che fondono apprendimento e team building: full immersion all'estero, convention, sfide outdoor e retreat.</p>
+            <a href="servizio-eventi.html" class="service-block__link" aria-label="Scopri di più su Eventi Formativi">
+              Scopri di più
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </li>
+
+          <li class="service-block" data-reveal>
+            <!-- Welfare icon -->
+            <svg class="service-block__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M18 30s-13-8-13-17a7 7 0 0114 0 7 7 0 0114 0c0 9-15 17-15 17z"/>
+            </svg>
+            <div class="service-block__title">Welfare Aziendale</div>
+            <p class="service-block__body">Finanzia la formazione tramite il welfare. I nostri corsi sono integrati sulle principali piattaforme (DoubleYou, Edenred, AON).</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ── SEZIONE 5: APP ─────────────────── -->
+    <section class="section-app section-layer section-layer--2" aria-labelledby="app-heading">
+      <div class="container">
+        <div class="section-app__inner">
+
+          <div class="section-app__text">
+            <p class="eyebrow" data-reveal>La nostra app</p>
+            <h2 class="section-app__heading" id="app-heading" data-reveal>
+              L'apprendimento sempre in tasca
+            </h2>
+            <p class="section-app__body" data-reveal>
+              Con la nostra app <strong>Entertraining</strong>, i partecipanti
+              accedono a contenuti formativi in modo flessibile, semplice e
+              coinvolgente, ovunque si trovino.
+            </p>
+          </div>
+
+          <!-- id="app" lives here — nav anchor scrolls to top of the phone image -->
+          <div id="app" class="section-app__image-wrap">
+            <picture>
+              <source srcset="img/compressed/avif/bg-app.avif" type="image/avif">
+              <source srcset="img/compressed/webp/bg-app.webp" type="image/webp">
+              <img
+                class="section-app__image"
+                src="img/compressed/jpg/bg-app.png"
+                alt="App Entertraining su smartphone"
+                width="320"
+                height="640"
+              />
+            </picture>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SEZIONE X: TEAM ────────────────── -->
+    <section class="section-team section-layer section-layer--1" aria-labelledby="team">
+      <div class="container">
+
+        <div class="section-team__header">
+          <h2 class="eyebrow" id="team" data-reveal>Il nostro Team</h2>
+        </div>
+
+        <ul class="team-grid" role="list">
+          <!-- Card 1 -->
+          <li class="team-card" data-reveal>
+            <img src="img/compressed/jpg/Alessandra_Cavaliere.jpg" alt="Alessandra Cavaliere" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Alessandra Cavaliere</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 2 -->
+          <li class="team-card" data-reveal data-delay="1">
+            <img src="img/compressed/jpg/Alessio_Mealli.jpg" alt="Alessio Mealli" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Alessio Mealli</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 3 -->
+          <li class="team-card" data-reveal data-delay="2">
+            <img src="img/compressed/jpg/Arnaud Meynaerts.jpg" alt="Arnaud Meynaerts" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Arnaud Meynaerts</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 4 -->
+          <li class="team-card" data-reveal data-delay="3">
+            <img src="img/compressed/jpg/Elena_Mantova.jpg" alt="Elena Mantova" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Elena Mantova</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 5 -->
+          <li class="team-card" data-reveal>
+            <img src="img/compressed/jpg/Ken_McCan.jpg" alt="Ken McCan" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Ken McCann</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 6 -->
+          <li class="team-card" data-reveal data-delay="1">
+            <img src="img/compressed/jpg/Larisa_Kozulina.jpg" alt="Larisa Kozulina" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Larisa Kozulina</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 7 -->
+          <li class="team-card" data-reveal data-delay="2">
+            <img src="img/compressed/jpg/matteo_zanaboni.jpg" alt="Matteo Zanaboni" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Matteo Zanaboni</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+          <!-- Card 8 -->
+          <li class="team-card" data-reveal data-delay="3">
+            <img src="img/compressed/jpg/Olga_Kozulina.jpg" alt="Olga Kozulina" class="team-card__image" loading="lazy" width="400" height="667" />
+            <div class="team-card__caption">
+              <div class="team-card__name">Olga Kozulina</div>
+              <div class="team-card__role"></div>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ── SEZIONE 6: CONTATTI ────────────── -->
+    <section class="section-contact section-layer section-layer--1" aria-labelledby="contatti-heading">
+      <div class="container">
+
+        <div class="section-contact__header">
+          <p class="eyebrow" id="contatti" data-reveal>Parliamo</p>
+          <h2 class="section-contact__heading" id="contatti-heading">
+            <span data-reveal="clip"><span class="reveal-inner">Progetta la tua</span></span>
+            <span data-reveal="clip"><span class="reveal-inner">formazione <em>su misura</em></span></span>
+          </h2>
+        </div>
+
+        <div class="layout-two-col">
+
+          <!-- Form -->
+          <div>
+            <form id="contact-form" class="contact-form" novalidate>
+
+              <div class="form-group">
+                <label for="field-azienda">Azienda</label>
+                <input type="text" id="field-azienda" name="azienda" autocomplete="organization" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="field-nome">Nome</label>
+                <input type="text" id="field-nome" name="nome" autocomplete="name" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="field-email">Email</label>
+                <input type="email" id="field-email" name="email" autocomplete="email" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="field-corso">Corso di interesse (Opzionale)</label>
+                <input type="text" id="field-corso" name="corso" class="input-corso" />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="field-messaggio">Messaggio</label>
+                <textarea id="field-messaggio" name="messaggio" rows="5" required></textarea>
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-checkbox">
+                  <input type="checkbox" id="field-privacy" name="privacy" required />
+                  <span>Ho letto e accetto la <a href="privacy.html" class="form-privacy-link">Privacy Policy</a></span>
+                </label>
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+
+              <button type="submit" class="btn btn--primary">Invia</button>
+
+              <!-- Honeypot — hidden from real users, bots fill it automatically -->
+              <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                <label for="field-website">Non compilare questo campo</label>
+                <input type="text" id="field-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+
+            </form>
+
+            <div id="form-success" class="form-success" role="alert">
+              Grazie! Il tuo messaggio è stato inviato. Ti risponderemo al più presto.
+            </div>
+          </div>
+
+          <!-- Info + Map -->
+          <div class="contact-info">
+
+            <!-- Google Maps — click-to-load for GDPR compliance.
+                 The iframe is only injected after explicit user consent.
+                 Replace map-consent__preview src with a static screenshot
+                 of the map area exported from Google Maps or Mapbox. -->
+            <div class="map-consent" id="map-consent" role="region" aria-label="Mappa sede">
+              <img
+                class="map-consent__preview"
+                src="img/compressed/jpg/bg-map.jpg"
+                alt=""
+                aria-hidden="true"
+                width="600"
+                height="450"
+              />
+              <div class="map-consent__overlay">
+                <!-- <span class="map-consent__label">Mappa interattiva</span> -->
+                <button
+                  class="btn btn--secondary"
+                  id="map-consent-btn"
+                  type="button"
+                  aria-label="Carica la mappa di Google Maps (carica contenuti di terze parti)"
+                >
+                  Mostra mappa
+                </button>
+                <p class="map-consent__disclaimer">
+                  Cliccando carichi Google Maps e accetti i relativi cookie di terze parti.
+                </p>
+              </div>
+              <iframe
+                class="map-consent__iframe"
+                id="map-iframe"
+                data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.845432065339!2d9.071956175846196!3d45.553434827481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47868b8ec73d0a1f%3A0xb00c7725cc020403!2sSW%20ITALY%20SRL!5e0!3m2!1sit!2sit!4v1774210852913!5m2!1sit!2sit"
+                title="Mappa sede SW Italy — Arese, Milano"
+                width="600"
+                height="450"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"
+                aria-hidden="true"
+              ></iframe>
+            </div>
+            <address class="contact-info__address">
+              <span class="contact-info__name">SW Italy Srl</span>
+              <span class="contact-info__detail">Viale dei Tigli, 2/A — 20044 Arese (MI) Italy</span>
+              <span class="contact-info__detail">CF e P. IVA 06686120962</span>
+              <span class="contact-info__detail">Tel. <a href="tel:0293824770" class="contact-info__tel">02-9382477</a></span>
+            </address>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer__text">© 2026 All Rights Reserved — SW Italy</p>
+  </footer>
+
+
+  <!-- Map consent — loads iframe only after explicit user click.
+       Consent is stored in sessionStorage so returning to this page
+       within the same browser session keeps the map open automatically. -->
+  <script>
+    (function () {
+      var MAP_KEY = 'sw_map_consent';
+
+      function loadMap() {
+        var wrapper = document.getElementById('map-consent');
+        var iframe  = document.getElementById('map-iframe');
+        if (!wrapper || !iframe) return;
+        iframe.setAttribute('src', iframe.getAttribute('data-src'));
+        iframe.removeAttribute('aria-hidden');
+        wrapper.classList.add('is-loaded');
+      }
+
+      // Restore consent if user already approved in this session
+      try {
+        if (sessionStorage.getItem(MAP_KEY) === '1') {
+          loadMap();
+        }
+      } catch {}
+
+      var btn = document.getElementById('map-consent-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        try { sessionStorage.setItem(MAP_KEY, '1'); } catch {}
+        loadMap();
+      });
+    })();
+  </script>
+
+  <!-- Scripts — type="module" is auto-deferred and non-blocking -->
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Noscript fallback: expose all content if JS is disabled -->
+  <noscript>
+    <style>
+      [data-reveal],
+      .hero__scroll,
+      .nav__logo,
+      .btn--nav {
+        opacity: 1 !important;
+        transform: none !important;
+        width: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      [data-reveal="clip"] > .reveal-inner {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+      /* App image has its own CSS entrance outside the data-reveal system */
+      .section-app__image {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      /* Counters: hide the initial "0" text, show target via ::before pseudo */
+      [data-counter] {
+        color: transparent !important;
+        position: relative;
+      }
+      [data-counter]::before {
+        content: attr(data-target);
+        color: var(--c-primary);
+        position: absolute;
+        left: 0;
+      }
+    </style>
+  </noscript>
+
+</body>
+</html>
